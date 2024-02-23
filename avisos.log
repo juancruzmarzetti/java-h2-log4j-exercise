@@ -1,0 +1,81 @@
+[2024-02-23 01:07:32] [ERROR] [Main:41] Error posible en dos dos:la conexión secundaria con la base de datoso la creación o llamada de la tabla SQL
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NAME VARCHAR(255), EDAD TINYINT [*]SIGNED, EMPRESA VARCHAR(255), FECHA_COMIENZO DATE);\000aINSERT INTO EMPLEADO VALUES(1, 'Juan', 21, 'Digital', 2020-07-27);\000aINSERT INTO EMPLEADO VALUES(2, 'Elian', 21, 'Google', 2021-11-22);\000aINSERT INTO EMPLEADO VALUES(3, 'Enzo', 27, 'Facebook', 2022-02-15);\000a"; se esperaba "ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NAME VARCHAR(255), EDAD TINYINT [*]SIGNED, EMPRESA VARCHAR(255), FECHA_COMIENZO DATE);\000aINSERT INTO EMPLEADO VALUES(1, 'Juan', 21, 'Digital', 2020-07-27);\000aINSERT INTO EMPLEADO VALUES(2, 'Elian', 21, 'Google', 2021-11-22);\000aINSERT INTO EMPLEADO VALUES(3, 'Enzo', 27, 'Facebook', 2022-02-15);\000a"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NAME VARCHAR(255), EDAD TINYINT SIGNED, EMPRESA VARCHAR(255), FECHA_COMIENZO DATE);
+INSERT INTO EMPLEADO VALUES(1, 'Juan', 21, 'Digital', 2020-07-27);
+INSERT INTO EMPLEADO VALUES(2, 'Elian', 21, 'Google', 2021-11-22);
+INSERT INTO EMPLEADO VALUES(3, 'Enzo', 27, 'Facebook', 2022-02-15);
+ [42001-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.getSyntaxError(DbException.java:261)
+	at org.h2.command.ParserBase.getSyntaxError(ParserBase.java:750)
+	at org.h2.command.ParserBase.read(ParserBase.java:357)
+	at org.h2.command.ParserBase.readIfMore(ParserBase.java:625)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8940)
+	at org.h2.command.Parser.parseCreate(Parser.java:6404)
+	at org.h2.command.Parser.parsePrepared(Parser.java:666)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:569)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:53)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at Main.main(Main.java:24)
+[2024-02-23 01:13:54] [ERROR] [Main:41] Error posible en dos dos:la conexión secundaria con la base de datoso la creación o llamada de la tabla SQL
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NAME VARCHAR(255), EDAD TINYINT [*]SIGNED, EMPRESA VARCHAR(255), FECHA_COMIENZO DATE);\000aINSERT INTO EMPLEADO VALUES(1, 'Juan', 21, 'Digital', '2020-07-27');\000aINSERT INTO EMPLEADO VALUES(2, 'Elian', 21, 'Google', '2021-11-22');\000aINSERT INTO EMPLEADO VALUES(3, 'Enzo', 27, 'Facebook', '2022-02-15');\000a"; se esperaba "ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NAME VARCHAR(255), EDAD TINYINT [*]SIGNED, EMPRESA VARCHAR(255), FECHA_COMIENZO DATE);\000aINSERT INTO EMPLEADO VALUES(1, 'Juan', 21, 'Digital', '2020-07-27');\000aINSERT INTO EMPLEADO VALUES(2, 'Elian', 21, 'Google', '2021-11-22');\000aINSERT INTO EMPLEADO VALUES(3, 'Enzo', 27, 'Facebook', '2022-02-15');\000a"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NAME VARCHAR(255), EDAD TINYINT SIGNED, EMPRESA VARCHAR(255), FECHA_COMIENZO DATE);
+INSERT INTO EMPLEADO VALUES(1, 'Juan', 21, 'Digital', '2020-07-27');
+INSERT INTO EMPLEADO VALUES(2, 'Elian', 21, 'Google', '2021-11-22');
+INSERT INTO EMPLEADO VALUES(3, 'Enzo', 27, 'Facebook', '2022-02-15');
+ [42001-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.getSyntaxError(DbException.java:261)
+	at org.h2.command.ParserBase.getSyntaxError(ParserBase.java:750)
+	at org.h2.command.ParserBase.read(ParserBase.java:357)
+	at org.h2.command.ParserBase.readIfMore(ParserBase.java:625)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8940)
+	at org.h2.command.Parser.parseCreate(Parser.java:6404)
+	at org.h2.command.Parser.parsePrepared(Parser.java:666)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:569)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:53)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at Main.main(Main.java:24)
+[2024-02-23 01:14:49] [ERROR] [Main:41] Error posible en dos dos:la conexión secundaria con la base de datoso la creación o llamada de la tabla SQL
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NAME VARCHAR(255), EDAD TINYINT [*]UNSIGNED, EMPRESA VARCHAR(255), FECHA_COMIENZO DATE);\000aINSERT INTO EMPLEADO VALUES(1, 'Juan', 21, 'Digital', '2020-07-27');\000aINSERT INTO EMPLEADO VALUES(2, 'Elian', 21, 'Google', '2021-11-22');\000aINSERT INTO EMPLEADO VALUES(3, 'Enzo', 27, 'Facebook', '2022-02-15');\000a"; se esperaba "ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NAME VARCHAR(255), EDAD TINYINT [*]UNSIGNED, EMPRESA VARCHAR(255), FECHA_COMIENZO DATE);\000aINSERT INTO EMPLEADO VALUES(1, 'Juan', 21, 'Digital', '2020-07-27');\000aINSERT INTO EMPLEADO VALUES(2, 'Elian', 21, 'Google', '2021-11-22');\000aINSERT INTO EMPLEADO VALUES(3, 'Enzo', 27, 'Facebook', '2022-02-15');\000a"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE EMPLEADO(ID INT PRIMARY KEY, NAME VARCHAR(255), EDAD TINYINT UNSIGNED, EMPRESA VARCHAR(255), FECHA_COMIENZO DATE);
+INSERT INTO EMPLEADO VALUES(1, 'Juan', 21, 'Digital', '2020-07-27');
+INSERT INTO EMPLEADO VALUES(2, 'Elian', 21, 'Google', '2021-11-22');
+INSERT INTO EMPLEADO VALUES(3, 'Enzo', 27, 'Facebook', '2022-02-15');
+ [42001-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.getSyntaxError(DbException.java:261)
+	at org.h2.command.ParserBase.getSyntaxError(ParserBase.java:750)
+	at org.h2.command.ParserBase.read(ParserBase.java:357)
+	at org.h2.command.ParserBase.readIfMore(ParserBase.java:625)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8940)
+	at org.h2.command.Parser.parseCreate(Parser.java:6404)
+	at org.h2.command.Parser.parsePrepared(Parser.java:666)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:569)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:53)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at Main.main(Main.java:24)
